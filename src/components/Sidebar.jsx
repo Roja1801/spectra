@@ -29,13 +29,13 @@ const Sidebar = ({user, closeToggle }) => {
          <Toggle1 />
             
         </Link>
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-4 ">
         <NavLink
             to="/"
             className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
             onClick={handleCloseSidebar}
           >
-                <RiHomeFill className='dark:text-cyan-500'/>
+                <RiHomeFill className= ' text-cyan-800 dark:text-cyan-500'/>
                 Home
         </NavLink>
         <h3 className="mt-2 px-5 py-1 text-base 2xl:text-xl dark:text-white">DISCOVER CATEGORIES</h3>
