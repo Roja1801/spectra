@@ -58,7 +58,7 @@ const PinDetail = ({user}) => {
 
   return (
     <>
-    <div className="flex xl:flex-row flex-col m-auto bg-white" style={{ maxWidth: '1500px', borderRadius: '32px' }}>
+    <div className="flex xl:flex-row flex-col m-auto bg-cyan-100 dark:bg-gray-800" style={{ maxWidth: '1500px', borderRadius: '32px' }}>
       <div className="flex justify-center items-center md:items-start flex-initial">
             <img
               className="rounded-t-3xl rounded-b-lg "
@@ -77,32 +77,32 @@ const PinDetail = ({user}) => {
                   <MdDownloadForOffline />
                 </a>
           </div>
-              <a href={pinDetail.destination} target="_blank" rel="noreferrer">
+              <a href={pinDetail.destination} target="_blank" rel="noreferrer" className='dark:text-white'>
                 {pinDetail.destination?.slice(7)}
               </a>
         </div>
             <div>
-              <h1 className="text-4xl font-bold break-words mt-3">
+              <h1 className="text-4xl font-bold break-words mt-3 dark:text-white">
                 {pinDetail.title}
               </h1>
-              <p className="mt-3">{pinDetail.about}</p>
+              <p className="mt-3 dark:text-white">{pinDetail.about}</p>
             </div> 
-            <Link to={`/user-profile/${pinDetail?.postedBy._id}`} className="flex gap-2 mt-5 items-center bg-white rounded-lg ">
+            <Link to={`/user-profile/${pinDetail?.postedBy._id}`} className="flex gap-2 mt-5 items-center bg-cyan-100 rounded-lg dark:bg-gray-800">
               <img src={pinDetail?.postedBy.image} className="w-10 h-10 rounded-full" alt="user-profile" />
-              <p className="font-bold">{pinDetail?.postedBy.userName}</p>
+              <p className="font-bold dark:text-white">{pinDetail?.postedBy.userName}</p>
             </Link>
-            <h2 className="mt-5 text-2xl">Comments</h2>
+            <h2 className="mt-5 text-2xl dark:text-white">Comments</h2>
             <div className="max-h-370 overflow-y-auto">
             {pinDetail?.comments?.map((item) => (
-                <div className="flex gap-2 mt-5 items-center bg-white rounded-lg" key={item.comment}>
+                <div className="flex gap-2 mt-5 items-center bg-cyan-100 rounded-lg dark:bg-gray-800" key={item.comment}>
                   <img
                     src={item.postedBy?.image}
                     className="w-10 h-10 rounded-full cursor-pointer"
                     alt="user-profile"
                   />
                   <div className="flex flex-col">
-                    <p className="font-bold">{item.postedBy?.userName}</p>
-                    <p>{item.comment}</p>
+                    <p className="font-bold dark:text-white">{item.postedBy?.userName}</p>
+                    <p className='dark:text-white' >{item.comment}</p>
                   </div>
                 </div>
             ))}
@@ -112,7 +112,7 @@ const PinDetail = ({user}) => {
                 <img src={user.image} className="w-10 h-10 rounded-full cursor-pointer" alt="user-profile" />
               </Link>
               <input
-                className=" flex-1 border-gray-100 outline-none border-2 p-2 rounded-2xl focus:border-gray-300"
+                className=" flex-1 border-gray-100 bg-red outline-none border-2 p-2 rounded-2xl shadow-md focus:border-gray-300 dark:bg-gray-700"
                 type="text"
                 placeholder="Add a comment"
                 value={comment}
@@ -120,10 +120,10 @@ const PinDetail = ({user}) => {
               />
               <button
                 type="button"
-                className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
+                className="bg-cyan-700 hover:bg-cyan-800 text-white rounded-full px-6 py-2 font-semibold text-base outline-none dark:bg-cyan-500"
                 onClick={addComment}
               >
-                {addingComment ? 'Poating the comment...' : 'Post'}
+                {addingComment ? 'Posting the comment...' : 'Post'}
               </button>
             </div>
 
@@ -132,7 +132,7 @@ const PinDetail = ({user}) => {
     </div>
     {pins?.length > 0 ? (
       <>
-      <h2 className="text-center font-bold text-2xl mt-8 mb-4">
+      <h2 className="text-center font-bold text-2xl mt-8 mb-4 dark:text-white">
         More like this
       </h2>
       <MasonryLayout pins={pins} />

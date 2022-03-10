@@ -85,9 +85,9 @@ const CreatePin = ({user}) => {
           Please fill in all fields
         </p>
       )}
-      <div className=" flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5  w-full">
-        <div className="bg-secondaryColor p-3 flex flex-0.7 w-full" >
-          <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420" >
+      <div className=" flex lg:flex-row flex-col justify-center items-center bg-cyan-100 rounded-lg shadow-lg lg:p-5 p-3 lg:w-4/5  w-full dark:bg-gray-800">
+        <div className="bg-cyan-200 p-3 flex flex-0.7 w-full dark:bg-gray-700" >
+          <div className=" flex justify-center items-center flex-col border-2 border-dotted p-3 w-full h-420" >
             {loading && <Spinner />}
             {wrongImageType && <p>Wrong Imagetype </p> }
             {!imageAsset ? (
@@ -138,16 +138,16 @@ const CreatePin = ({user}) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add your title here"
-            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
+            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 bg-cyan-100 dark:bg-gray-700 rounded-lg"
           />
           {user && (
-            <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
+            <div className="flex gap-2 mt-2 mb-2 items-center bg-cyan-100 rounded-lg dark:bg-gray-800">
               <img
                 src={user.image}
                 className="w-10 h-10 rounded-full"
                 alt="user-profile"
               />
-              <p className="font-bold">{user.userName}</p>
+              <p className="font-bold dark:text-white">{user.userName}</p>
             </div>
           )}
           <input
@@ -155,28 +155,28 @@ const CreatePin = ({user}) => {
             value={about}
             onChange={(e) => setAbout(e.target.value)}
             placeholder="Tell everyone what your Pin is about"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 bg-cyan-100 dark:bg-gray-700 rounded-lg"
           />
           <input
             type="url"
             vlaue={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 bg-cyan-100 dark:bg-gray-700 rounded-lg"
           />
           <div className="flex flex-col">
             <div>
-               <p className="mb-2 font-semibold text:lg sm:text-xl">Choose Pin Category</p>
+               <p className="mb-2 font-semibold text:lg sm:text-xl  dark:text-white">Choose Pin Category</p>
                <select
                 onChange={(e) => {
                   setCategory(e.target.value);
                 }}
-                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
+                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer bg-cyan-100 dark:bg-gray-700"
               >
-                <option value="others" className="sm:text-bg bg-white">Select Category</option>
-                {categories.map((item) => (
-                  <option className="text-base border-0 outline-none capitalize bg-white text-black " value={item.name}>
-                    {item.name}
+                <option value="others" className="sm:text-bg  ">Select Category</option>
+                {categories.map((category,i) => (
+                  <option className="text-base border-0 outline-none uppercase bg-white text-black " value={category.name} key={i}>
+                    {category.name}
                   </option>
                 ))}
               </select>
@@ -185,7 +185,7 @@ const CreatePin = ({user}) => {
             <button
                 type="button"
                 onClick={savePin}
-                className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
+                className="bg-cyan-700 hover:bg-cyan-800 text-white font-bold p-2 rounded-full w-28 outline-none dark:bg-cyan-500 dark:hover:bg-cyan-600"
               >
                 Save Pin
               </button>
